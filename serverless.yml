@@ -8,14 +8,14 @@ provider:
     Channel_access_token: #########
     Channel_secret: ########
     openAI_API_token: ##########
-  # iam:
-  #   role:
-  #     statements:
-  #       - Effect: Allow
-  #         Action:
-  #           - dynamodb:*
-  #         Resource:
-  #           - "YOUR_ARN"
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource:
+            - "arn:aws:dynamodb:${aws:region}:*:table/chat-conversation-table"
 
 functions:
   line_bot:
